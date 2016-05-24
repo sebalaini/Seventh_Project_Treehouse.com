@@ -1,0 +1,35 @@
+/***************
+VIDEO and P
+***************/
+
+video,
+#video-container {
+
+	@include mobile {
+		display: block;
+		position: relative;
+	  margin: 0 auto;
+	  max-width: 95%;
+	}
+
+	@include tablet {
+	  max-width: 95%;
+	}
+
+	@include desktop {
+	  max-width: 1000px;
+	}
+}
+
+#video-controls {
+
+	@include mobile {
+		max-width: 95%;
+		margin: 0 auto;
+		position: absolute;
+	}
+
+	@include desktop {
+		max-width: 1000px;
+	}
+}

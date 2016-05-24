@@ -1,23 +1,28 @@
+/***************
+GENERAL
+***************/
+
 body {
-  color: #384047;
+  background-color: $white;
+  color: $grey;
 }
 
 .wrapper {
   max-width: 90%;
-  margin: 10px auto;
+  margin: 0 auto;
   padding: 10px 20px;
 }
 
-h1, h2 {
-  text-align: center;
-  margin: 30px 0;
-}
+p {
 
-video, audio {
-  margin: 0 auto;
-  display: block;
-}
+  @include mobile {
+    margin: 0 auto;
+    margin-top: 25px;
+    max-width: 85%;
+    text-align: center;
+  }
 
-label {
-  color: black;
-} 
+  @include desktop {
+    max-width: 1000px;
+  }
+}
