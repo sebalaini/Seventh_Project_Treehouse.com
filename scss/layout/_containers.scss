@@ -1,5 +1,5 @@
 /***************
-VIDEO and P
+VIDEO
 ***************/
 
 video,
@@ -12,12 +12,8 @@ video,
 	  max-width: 95%;
 	}
 
-	@include tablet {
-	  max-width: 95%;
-	}
-
 	@include desktop {
-	  max-width: 1000px;
+	  max-width: 92%;
 	}
 }
 
@@ -27,9 +23,30 @@ video,
 		max-width: 95%;
 		margin: 0 auto;
 		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 30px;
+		padding: 1px;
+		opacity: 0;
+		-webkit-transition: opacity .3s;
+		-moz-transition: opacity .3s;
+		-o-transition: opacity .3s;
+		-ms-transition: opacity .3s;
+		transition: opacity .3s;
+		background: rgba(0, 0, 0, 0.6);
 	}
 
 	@include desktop {
-		max-width: 1000px;
+	  max-width: 92%;
 	}
 }
+
+
+#video-container:hover #video-controls {
+	opacity: .9;
+}
+
+
+
+

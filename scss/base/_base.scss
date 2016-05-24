@@ -8,7 +8,7 @@ body {
 }
 
 .wrapper {
-  max-width: 90%;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 10px 20px;
 }
@@ -23,6 +23,6 @@ p {
   }
 
   @include desktop {
-    max-width: 1000px;
+    max-width: 80%;
   }
 }

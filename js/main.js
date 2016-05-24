@@ -1,102 +1,111 @@
+
+
 window.onload = function() {
 
-	// Video
-	var video = document.getElementById("video");
-
-	// Buttons
-	var playButton = document.getElementById("play-pause");
-	var muteButton = document.getElementById("mute");
-	var fullScreenButton = document.getElementById("full-screen");
-
-	// Sliders
-	var seekBar = document.getElementById("seek-bar");
-	var volumeBar = document.getElementById("volume-bar");
+var video = document.getElementById("video");
+var playButton = document.getElementById("play-pause");
+var muteButton = document.getElementById("mute");
+var fullScreenButton = document.getElementById("full-screen");
+var seekBar = document.getElementById("seek-bar");
+var volumeBar = document.getElementById("volume-bar");
 
 
+// Event listener for the play/pause button
+playButton.addEventListener("click", function() {
+	if (video.paused == true) {
+		// Play the video
+		video.play();	
+		// Update the button background
+		playButton.style.backgroundImage="url(icons/pause-icon.png)";
+	} else {
+		// Pause the video
+		video.pause();
+		// Update the button background
+		playButton.style.backgroundImage="url(icons/play-icon.png)";
+	}
+});
 
 
-	// Event listener for the play/pause button
-	playButton.addEventListener("click", function() {
-		if (video.paused == true) {
-			// Play the video
-			video.play();
-
-			// Update the button text to 'Pause'
-			playButton.style.backgroundImage="url(icons/pause-icon.png)";
-		} else {
-			// Pause the video
-			video.pause();
-
-			// Update the button text to 'Play'
-			playButton.style.backgroundImage="url(icons/play-icon.png)";
-		}
-	});
+// Event listener for the mute button
+muteButton.addEventListener("click", function() {
+	if (video.muted == false) {
+		// Mute the video
+		video.muted = true;
+		// Update the button background
+		muteButton.style.backgroundImage="url(icons/volume-off-icon.png)";
+	} else {
+		// Unmute the video
+		video.muted = false;
+		// Update the button background
+		muteButton.style.backgroundImage="url(icons/volume-on-icon.png)";
+	}
+});
 
 
-	// Event listener for the mute button
-	muteButton.addEventListener("click", function() {
-		if (video.muted == false) {
-			// Mute the video
-			video.muted = true;
-
-			// Update the button text
-			muteButton.style.backgroundImage="url(icons/volume-off-icon.png)";
-		} else {
-			// Unmute the video
-			video.muted = false;
-
-			// Update the button text
-			muteButton.style.backgroundImage="url(icons/volume-on-icon.png)";
-		}
-	});
+// Event listener for the full-screen button
+fullScreenButton.addEventListener("click", function() {
+	if (video.requestFullscreen) {
+		video.requestFullscreen();
+	} else if (video.mozRequestFullScreen) {
+		video.mozRequestFullScreen(); // Firefox
+	} else if (video.webkitRequestFullscreen) {
+		video.webkitRequestFullscreen(); // Chrome and Safari
+	}
+});
 
 
-
-
-	// Event listener for the full-screen button
-	fullScreenButton.addEventListener("click", function() {
-		if (video.requestFullscreen) {
-			video.requestFullscreen();
-		} else if (video.mozRequestFullScreen) {
-			video.mozRequestFullScreen(); // Firefox
-		} else if (video.webkitRequestFullscreen) {
-			video.webkitRequestFullscreen(); // Chrome and Safari
-		}
-	});
-
-
-	// Event listener for the seek bar
-	seekBar.addEventListener("change", function() {
-		// Calculate the new time
-		var time = video.duration * (seekBar.value / 100);
-
-		// Update the video time
-		video.currentTime = time;
-	});
+// Event listener for the seek bar
+seekBar.addEventListener("change", function() {
+	// Calculate the new time
+	var time = video.duration * (seekBar.value / 100);
+	
+	// Update the video time
+	video.currentTime = time;
+});
 
 	
-	// Update the seek bar as the video plays
-	video.addEventListener("timeupdate", function() {
-		// Calculate the slider value
-		var value = (100 / video.duration) * video.currentTime;
+// Update the seek bar as the video plays
+video.addEventListener("timeupdate", function() {
+	// Calculate the slider value
+	var value = (100 / video.duration) * video.currentTime;
 
-		// Update the slider value
-		seekBar.value = value;
-	});
+	// Update the slider value
+	seekBar.value = value;
+});
 
-	// Pause the video when the seek handle is being dragged
-	seekBar.addEventListener("mousedown", function() {
-		video.pause();
-	});
 
-	// Play the video when the seek handle is dropped
-	seekBar.addEventListener("mouseup", function() {
-		video.play();
-	});
+// Pause the video when the seek handle is being dragged
+seekBar.addEventListener("mousedown", function() {
+	video.pause();
+});
 
-	// Event listener for the volume bar
-	volumeBar.addEventListener("change", function() {
-		// Update the video volume
-		video.volume = volumeBar.value;
-	});
+
+// Play the video when the seek handle is dropped
+seekBar.addEventListener("mouseup", function() {
+	video.play();
+});
+
+// Event listener for the volume bar
+volumeBar.addEventListener("change", function() {
+	// Update the video volume
+	video.volume = volumeBar.value;
+});
+
+
+if (video.volume == 0) {
+		// Mute the video
+		video.muted = true;
+		// Update the button background
+		muteButton.style.backgroundImage="url(icons/volume-off-icon.png)";
+	} else {
+		// Unmute the video
+		video.muted = false;
+		// Update the button background
+		muteButton.style.backgroundImage="url(icons/volume-on-icon.png)";
+	};
+
+
 }
+
+
+
