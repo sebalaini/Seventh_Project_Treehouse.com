@@ -42,10 +42,20 @@ input {
 	background: url("../icons/volume-on-icon.png") no-repeat;
 }
 
+#volume {
+	display: inline-block;
+	width: 30px;
+}
+
+#volume:hover #volume-bar {
+	display: inline-block;
+}
 
 #volume-bar {
-	width: 15px;
-	height: 30px;
+	display: none;
+	z-index: 100;
+	width: 40px;
+	height: 15px;
 	transform:rotate(-90deg);
 }
 
