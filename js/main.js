@@ -3,11 +3,14 @@
 window.onload = function() {
 
 var video = document.getElementById("video");
+var timeCurrent = document.getElementById("time-current");
+var	timeDuration = document.getElementById("time-duration");
 var playButton = document.getElementById("play-pause");
 var muteButton = document.getElementById("mute");
 var fullScreenButton = document.getElementById("full-screen");
 var seekBar = document.getElementById("seek-bar");
 var volumeBar = document.getElementById("volume-bar");
+
 
 
 // Event listener for the play/pause button
@@ -85,27 +88,24 @@ seekBar.addEventListener("mouseup", function() {
 	video.play();
 });
 
+
+volumeBar.addEventListener('change', onVolumeBarChange)
 // Event listener for the volume bar
-volumeBar.addEventListener("change", function() {
-	// Update the video volume
+function onVolumeBarChange () {
+  // Update the video volume
 	video.volume = volumeBar.value;
-});
+	if (video.volume == 0) {
+    // Update the button background
+    muteButton.style.backgroundImage="url(icons/volume-off-icon.png)";
+  } else {
+    // Update the button background
+    muteButton.style.backgroundImage="url(icons/volume-on-icon.png)";
+  };
+};
 
 
-if (video.volume == 0) {
-		// Mute the video
-		video.muted = true;
-		// Update the button background
-		muteButton.style.backgroundImage="url(icons/volume-off-icon.png)";
-	} else {
-		// Unmute the video
-		video.muted = false;
-		// Update the button background
-		muteButton.style.backgroundImage="url(icons/volume-on-icon.png)";
-	};
 
-
-}
+};
 
 
 

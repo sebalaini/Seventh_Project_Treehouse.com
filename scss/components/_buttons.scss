@@ -4,42 +4,79 @@ BUTTONS
 
 button {
 	display: inline-block;
-	background: rgba(0,0,0,.5);
+	padding: 2px;
+	margin: 1px;
+	width: 27px;
+	height: 27px;
+	color: $white;
+	background: rgba(0,0,0,0);
 	border: 0;
-	color: black;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	-o-border-radius: 3px;
-	border-radius: 3px;
 }
 
 button:hover {
 	cursor: pointer;
 }
 
-#play-pause {
-	background: url("../icons/play-icon.png") no-repeat;
-	width: 25px;
-	height: 25px;
-}
-
-#mute {
-	background: url("../icons/volume-on-icon.png") no-repeat;
-	width: 30px;
-	height: 25px;
-}
-
-#full-screen {
-	background: url("../icons/fullscreen-icon.png") no-repeat;
-	width: 25px;
-	height: 25px;
+input {
+	display: inline-block;
+	padding: 4px;
+	margin: 1px;
 }
 
 #seek-bar {
-	width: 360px;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+	margin-top: -2px;
 }
 
-#volume-bar {
-	width: 60px;
+
+#play-pause {
+	background: url("../icons/play-icon.png") no-repeat;
+	margin: 1px 10px;
+	margin-left: 15px;
 }
+
+
+#mute {
+	background: url("../icons/volume-on-icon.png") no-repeat;
+}
+
+
+#volume-bar {
+	width: 15px;
+	height: 30px;
+	transform:rotate(-90deg);
+}
+
+
+#cc {
+	background: url("../icons/captions-icon.png") no-repeat;
+	@extend %margin_btn;
+	margin-top: 4px;
+}
+
+#speed {
+	
+	@include mobile {
+		background: url("../icons/speed-icon.png") no-repeat;
+		margin: 1px 5px;
+		float: right;
+		display: none;
+	}
+
+	@include tablet {
+		display: inline-block;
+	}
+}
+
+
+#full-screen {
+	background: url("../icons/fullscreen-icon.png") no-repeat;
+	@extend %margin_btn;
+	margin-top: 4px;
+}
+
+
+
 

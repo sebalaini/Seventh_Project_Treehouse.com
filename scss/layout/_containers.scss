@@ -26,14 +26,7 @@ video,
 		bottom: 0;
 		left: 0;
 		right: 0;
-		height: 30px;
 		padding: 1px;
-		opacity: 0;
-		-webkit-transition: opacity .3s;
-		-moz-transition: opacity .3s;
-		-o-transition: opacity .3s;
-		-ms-transition: opacity .3s;
-		transition: opacity .3s;
 		background: rgba(0, 0, 0, 0.6);
 	}
 
@@ -42,10 +35,59 @@ video,
 	}
 }
 
-
-#video-container:hover #video-controls {
-	opacity: .9;
+.btn {
+	display: none;
 }
+
+#video-container:hover .btn {
+	display: block;
+}
+
+
+
+/***************
+VIDEO CONTROLS
+***************/
+
+.left-btn {
+
+	@include mobile {
+		display: inline-block;
+		float: left;
+		width: 50%;
+	}
+
+	@include tablet {
+		width: 75%;
+	}
+}
+
+.right-btn {
+
+	@include mobile {
+		display: inline-block;
+		float: left;
+		width: 50%;
+	}
+
+	@include tablet {
+		width: 25%;
+	}
+}
+
+.time {
+	margin: 1px;
+	padding: 1px;
+	width: 50px;
+}
+
+#time-current,
+#time-duration {
+	display: inline-block;
+	margin-bottom: 5px;
+	color: $white;
+}
+
 
 
 

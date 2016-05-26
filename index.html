@@ -21,17 +21,32 @@
     <track label="English" kind="subtitles" srclang="en" src="video/captions.vtt">
   </video>    
 
-<div id="video-controls">
-    <button type="button" id="play-pause"> </button>
+  <div id="video-controls">
     <input type="range" id="seek-bar" value="0">
-    <button type="button" id="mute"> </button>
-    <input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
-    <button type="button" id="full-screen"> </button>
+<div class="btn">
+  <div class="left-btn">  
+    <button type="button" id="play-pause"> </button>
+    
+    <div id="time-current" title="Current time"><span class="time">0:00 /</span></div>
+    <div id="time-duration" title="Duration"><span class="time">0:00</span></div>
   </div>
+    <div class="right-btn">
+      <button type="button" id="mute"> </button>
+      <input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
+
+      <button type="button" id="full-screen"> </button>    
+      <button type="button" id="speed"> </button>
+      <button type="button" id="cc"> </button>
 
 
+
+      </div>
+    </div>
+  </div>
 </div>
+
 <p>Now that we've looked at the architecture of the internet, let's see how you might connect your personal devices to the internet inside your house. Well there are many ways to connect to the internet, and most often people connect wirelessly. Let's look at an example of how you can connect to the internet. If you live in a city or a town, you probably have a coaxial cable for cable Internet, or a phone line if you have DSL, running to the outside of your house, that connects you to the Internet Service Provider, or ISP. If you live far out in the country, you'll more likely have a dish outside your house, connecting you wirelessly to your closest ISP, or you might also use the telephone system. Whether a wire comes straight from the ISP hookup outside your house, or it travels over radio waves from your roof, the first stop a wire will make once inside your house, is at your modem. A modem is what connects the internet to your network at home. A few common residential modems are DSL or<p>
+  
   <footer>
      
   </footer>
