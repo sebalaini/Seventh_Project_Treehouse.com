@@ -40,11 +40,12 @@ input {
 
 #mute {
 	background: url("../icons/volume-on-icon.png") no-repeat;
+	@extend %margin_btn;
 }
 
 #volume {
 	display: inline-block;
-	width: 30px;
+	width: 60px;
 }
 
 #volume:hover #volume-bar {
@@ -56,6 +57,10 @@ input {
 	z-index: 100;
 	width: 40px;
 	height: 15px;
+	@extend %margin_btn;
+	margin-top: 10px;
+	margin-right: 0;
+	margin-bottom: 24px;
 	transform:rotate(-90deg);
 }
 
