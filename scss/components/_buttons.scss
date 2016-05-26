@@ -54,7 +54,6 @@ input {
 
 #volume-bar {
 	display: none;
-	z-index: 100;
 	width: 40px;
 	height: 15px;
 	@extend %margin_btn;

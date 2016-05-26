@@ -4,35 +4,21 @@ VIDEO
 
 video,
 #video-container {
-
-	@include mobile {
-		display: block;
-		position: relative;
-	  margin: 0 auto;
-	  max-width: 95%;
-	}
-
-	@include desktop {
-	  max-width: 92%;
-	}
+	display: block;
+	position: relative;
+  margin: 0 auto;
+  max-width: 100%;
 }
 
 #video-controls {
-
-	@include mobile {
-		max-width: 95%;
-		margin: 0 auto;
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		padding: 1px;
-		background: rgba(0, 0, 0, 0.6);
-	}
-
-	@include desktop {
-	  max-width: 92%;
-	}
+	max-width: 100%;
+	margin: 0 auto;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 1px;
+	background: rgba(0, 0, 0, 0.6);
 }
 
 .btn {
@@ -50,28 +36,20 @@ VIDEO CONTROLS
 ***************/
 
 .left-btn {
-
-	@include mobile {
-		display: inline-block;
-		float: left;
-		width: 50%;
-	}
-
-	@include tablet {
-		width: 75%;
-	}
+	display: inline-block;
+	float: left;
+	width: 160px;
 }
 
 .right-btn {
 
 	@include mobile {
-		display: inline-block;
-		float: left;
-		width: 50%;
-	}
-
+	display: inline-block;
+	float: right;
+	width: 160px;
+}		
 	@include tablet {
-		width: 25%;
+		width: 171px;
 	}
 }
 
