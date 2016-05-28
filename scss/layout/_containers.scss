@@ -32,6 +32,35 @@ video,
 
 
 /***************
+VIDEO BAR
+***************/
+
+#progressBar {
+	display: inline;
+	position: initial;
+  width: 100%; 
+  margin-bottom: 8px;
+}
+
+#progress {
+  background-color: $orange;
+  height:6px;
+  display:inline;
+  position: absolute;
+  left: 0;
+}
+
+#buffered-amount {
+  background-color:#d4ff08;
+  height:6px;
+  display:inline-block;
+}
+
+#video-container:hover #progress {
+	height: 12px;
+}
+
+/***************
 VIDEO CONTROLS
 ***************/
 
@@ -49,7 +78,7 @@ VIDEO CONTROLS
 	width: 160px;
 }		
 	@include tablet {
-		width: 171px;
+		width: 175px;
 	}
 }
 

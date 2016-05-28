@@ -1,0 +1,40 @@
+footer {
+  margin-top: 50px;
+  padding: 5px;
+  text-align: center;
+}
+
+footer .copyright {
+  font-size: .80em;
+}
+
+
+a.social {
+  display: inline-block;
+  text-indent: -9999px;
+  margin-left: 5px;
+  width: 30px;
+  height: 30px;
+  background-size: 30px 30px;
+  opacity: .6;
+  transition: all .5s;
+}
+
+a.linkedin {
+  background-image: url(../icons/linkedin.svg);
+}
+
+a.github {
+  background-image: url(../icons/github.svg);
+}
+
+a.twitter {
+  background-image: url(../icons/twitter.svg);
+}
+
+a.social:hover {
+  opacity: 1;
+}
+
+
+

@@ -23,14 +23,6 @@ input {
 	margin: 1px;
 }
 
-#seek-bar {
-	width: 100%;
-	margin: 0px;
-	padding: 0px;
-	margin-top: -2px;
-}
-
-
 #play-pause {
 	background: url("../icons/play-icon.png") no-repeat;
 	margin: 1px 10px;
@@ -70,6 +62,7 @@ input {
 	margin-top: 4px;
 }
 
+
 #speed {
 	
 	@include mobile {
@@ -90,7 +83,6 @@ input {
 	@extend %margin_btn;
 	margin-top: 4px;
 }
-
 
 
 

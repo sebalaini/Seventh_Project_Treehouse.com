@@ -18,11 +18,11 @@ p {
   @include mobile {
     margin: 0 auto;
     margin-top: 25px;
-    max-width: 85%;
+    max-width: 90%;
     text-align: center;
   }
 
-  @include desktop {
-    max-width: 80%;
+  @include tablet {
+    max-width: 95%;
   }
 }

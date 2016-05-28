@@ -1,0 +1,481 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red33\green34\blue36;\red247\green247\blue247;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\fs24 \cf0 // Event listener for the seek bar\
+seekBar.addEventListener("change", function() \{\
+	// Calculate the new time\
+	var time = video.duration * (seekBar.value / 100);\
+	\
+	// Update the video time\
+	video.currentTime = time;\
+\});\
+\
+	\
+// Update the seek bar as the video plays\
+video.addEventListener("timeupdate", function() \{\
+	// Calculate the slider value\
+	var value = (100 / video.duration) * video.currentTime;\
+\
+	// Update the slider value\
+	seekBar.value = value;\
+\});\
+\
+\
+// Pause the video when the seek handle is being dragged\
+seekBar.addEventListener("mousedown", function() \{\
+	video.pause();\
+\});\
+\
+\
+// Play the video when the seek handle is dropped\
+seekBar.addEventListener("mouseup", function() \{\
+	video.play();\
+\});\
+\
+\
+\
+// Function for switching on and off closed captions\
+			cc function() \{\
+				for (var i = 0; i < video.textTracks.length; i++) \{\
+				   video.textTracks[i].mode = 'hidden';\
+				\}\
+				videoPlayerUI.buttonRadio1.click(function() \{\
+					for (var i = 0; i < video.textTracks.length; i++) \{\
+					  	video.textTracks[i].mode = 'showing';\
+					\}\
+				\});\
+				videoPlayerUI.buttonRadio2.click(function() \{\
+					for (var i = 0; i < video.textTracks.length; i++) \{\
+					   video.textTracks[i].mode = 'hidden';\
+					\}\
+				\});\
+			\},\
+\
+			// Function to set playback rate to 2x\
+			playSpeed20x: function() \{\
+				video.playbackRate = 2.0;\
+			\},\
+\
+			// Function to set playback rate to 1.5x\
+			playSpeed15x: function() \{\
+				video.playbackRate = 1.5;\
+			\},\
+\
+			// Function to set playback rate to 1x\
+			playSpeed10x: function() \{\
+				video.playbackRate = 1;\
+			\},\
+\
+			// Function to set playback rate to 0.5x\
+			playSpeed05x: function() \{\
+				video.playbackRate = 0.5;\
+			\},\
+\
+			// Function to hilight current phrase on timeupdate event\
+			transcriptHighlight: function() \{\
+				$(Video).on('timeupdate', function() \{\
+					var currTime = video.currentTime;\
+					if (currTime > 0 && currTime < 4 ) \{\
+						videoPlayerUI.ph01.css('color', 'rgba(240,149,0,1.00)');\
+					\} else \{\
+						videoPlayerUI.ph01.css('color', 'black');\
+					\}\
+					if (currTime > 4 && currTime < 7.5 ) \{\
+						videoPlayerUI.ph02.css('color', 'rgba(240,149,0,1.00)');\
+					\} else \{\
+						videoPlayerUI.ph02.css('color', 'black');\
+					\}\
+					if (currTime > 7.5 && currTime < 11.2 ) \{\
+						videoPlayerUI.ph03.css('color', 'rgba(240,149,0,1.00)');\
+					\} else \{\
+						videoPlayerUI.ph03.css('color', 'black');\
+					\}\
+					if (currTime > 11.2 && currTime < 14 ) \{\
+						videoPlayerUI.ph04.css('color', 'rgba(240,149,0,1.00)');\
+					\} else \{\
+						videoPlayerUI.ph04.css('color', 'black');\
+					\}\
+					if (currTime > 14 && currTime < 18 ) \{\
+						videoPlayerUI.ph05.css('color', 'rgba(240,149,0,1.00)');\
+					\} else \{\
+						videoPlayerUI.ph05.css('color', 'black');\
+					\}\
+					if (currTime > 18 && currTime < 22.4 ) \{\
+						videoPlayerUI.ph06.css('color', 'rgba(240,149,0,1.00)');\
+					\} else \{\
+						videoPlayerUI.ph06.css('color', 'black');\
+					\}\
+					if (currTime > 22.4 && currTime < 26.9 ) \{\
+						videoPlayerUI.ph07.css('color', 'rgba(240,149,0,1.00)');\
+					\} else \{\
+						videoPlayerUI.ph07.css('color', 'black');\
+					\}\
+					if (currTime > 26.9 && currTime < 31 ) \{\
+						videoPlayerUI.ph08.css('color', 'rgba(240,149,0,1.00)');\
+					\} else \{\
+						videoPlayerUI.ph08.css('color', 'black');\
+					\}\
+					if (currTime > 32.1 && currTime < 34.7 ) \{\
+						videoPlayerUI.ph09.css('color', 'rgba(240,149,0,1.00)');\
+					\} else \{\
+						videoPlayerUI.ph09.css('color', 'black');\
+					\}\
+					if (currTime > 34.7 && currTime < 39.5 ) \{\
+						videoPlayerUI.ph10.css('color', 'rgba(240,149,0,1.00)');\
+					\} else \{\
+						videoPlayerUI.ph10.css('color', 'black');\
+					\}\
+					if (currTime > 39.5 && currTime < 41.2 ) \{\
+						videoPlayerUI.ph11.css('color', 'rgba(240,149,0,1.00)');\
+					\} else \{\
+						videoPlayerUI.ph11.css('color', 'black');\
+					\}\
+					if (currTime > 42.3 && currTime < 46.3 ) \{\
+						videoPlayerUI.ph12.css('color', 'rgba(240,149,0,1.00)');\
+					\} else \{\
+						videoPlayerUI.ph12.css('color', 'black');\
+					\}\
+					if (currTime > 46.3 && currTime < 49.3 ) \{\
+						videoPlayerUI.ph13.css('color', 'rgba(240,149,0,1.00)');\
+					\} else \{\
+						videoPlayerUI.ph13.css('color', 'black');\
+					\}\
+					if (currTime > 49.3 && currTime < 53.7 ) \{\
+						videoPlayerUI.ph14.css('color', 'rgba(240,149,0,1.00)');\
+					\} else \{\
+						videoPlayerUI.ph14.css('color', 'black');\
+					\}\
+					if (currTime > 53.8 && currTime < 57.8 ) \{\
+						videoPlayerUI.ph15.css('color', 'rgba(240,149,0,1.00)');\
+					\} else \{\
+						videoPlayerUI.ph15.css('color', 'black');\
+					\}\
+					if (currTime > 57.8 && currTime < 59 ) \{\
+						videoPlayerUI.ph16.css('color', 'rgba(240,149,0,1.00)');\
+					\} else \{\
+						videoPlayerUI.ph16.css('color', 'black');\
+					\}\
+				\});\
+				\
+\
+			// Function to allow clicking on a phrase to set video current time respectively\
+			transcriptClick: function() \{\
+				videoPlayerUI.ph01.click(function() \{\
+					video.currentTime = 0;\
+					videoPlayerUI.playVideo();\
+				\});\
+				videoPlayerUI.ph02.click(function() \{\
+					video.currentTime = 4;\
+					videoPlayerUI.playVideo();\
+				\});\
+				videoPlayerUI.ph03.click(function() \{\
+					video.currentTime = 7.5;\
+					videoPlayerUI.playVideo();\
+				\});\
+				videoPlayerUI.ph04.click(function() \{\
+					video.currentTime = 11.2;\
+					videoPlayerUI.playVideo();\
+				\});\
+				videoPlayerUI.ph05.click(function() \{\
+					video.currentTime = 14;\
+					videoPlayerUI.playVideo();\
+				\});\
+				videoPlayerUI.ph06.click(function() \{\
+					video.currentTime = 18;\
+					videoPlayerUI.playVideo();\
+				\});\
+				videoPlayerUI.ph07.click(function() \{\
+					video.currentTime = 22.4;\
+					videoPlayerUI.playVideo();\
+				\});\
+				videoPlayerUI.ph08.click(function() \{\
+					video.currentTime = 26.9;\
+					videoPlayerUI.playVideo();\
+				\});\
+				videoPlayerUI.ph09.click(function() \{\
+					video.currentTime = 32.1;\
+					videoPlayerUI.playVideo();\
+				\});\
+				videoPlayerUI.ph10.click(function() \{\
+					video.currentTime = 34.7;\
+					videoPlayerUI.playVideo();\
+				\});\
+				videoPlayerUI.ph11.click(function() \{\
+					video.currentTime = 39.5;\
+					videoPlayerUI.playVideo();\
+				\});\
+				videoPlayerUI.ph12.click(function() \{\
+					video.currentTime = 42.3;\
+					videoPlayerUI.playVideo();\
+				\});\
+				videoPlayerUI.ph13.click(function() \{\
+					video.currentTime = 46.3;\
+					videoPlayerUI.playVideo();\
+				\});\
+				videoPlayerUI.ph14.click(function() \{\
+					video.currentTime = 49.3;\
+					videoPlayerUI.playVideo();\
+				\});\
+				videoPlayerUI.ph15.click(function() \{\
+					video.currentTime = 53.8;\
+					videoPlayerUI.playVideo();\
+				\});\
+				videoPlayerUI.ph16.click(function() \{\
+					video.currentTime = 57.8;\
+					videoPlayerUI.playVideo();\
+				\});\
+			\
+\
+\
+\pard\pardeftab720
+
+\f1\fs30 \cf2 \expnd0\expndtw0\kerning0
+//Update duration counter\
+\'a0video.addEventListener("timeupdate", function()\{\
+\pard\pardeftab720
+
+\i\fs24 \cf0 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720
+
+\i0\fs30 \cf2 \expnd0\expndtw0\kerning0
+\'a0 \'a0//get and set current mins and seconds\
+\'a0 \'a0var currentMins = Math.floor(video.currentTime / 60);\
+\'a0 \'a0var currentSeconds = Math.floor(video.currentTime);\
+\'a0 \'a0\
+\'a0 \'a0if (currentMins < 10) \{\
+\'a0 \'a0 \'a0 \'a0currentMins = '0' + currentMins;\
+\'a0 \'a0\};\
+\pard\pardeftab720
+
+\i\fs24 \cf0 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720
+
+\i0\fs30 \cf2 \expnd0\expndtw0\kerning0
+\'a0 \'a0if (currentSeconds < 10) \{\
+\'a0 \'a0 \'a0 \'a0currentSeconds = '0' + currentSeconds;\
+\'a0 \'a0\};\
+\pard\pardeftab720
+
+\i\fs24 \cf0 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720
+
+\i0\fs30 \cf2 \expnd0\expndtw0\kerning0
+\'a0 \'a0var currentTime = currentMins + ":" + currentSeconds;\
+\pard\pardeftab720
+
+\i\fs24 \cf0 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720
+
+\i0\fs30 \cf2 \expnd0\expndtw0\kerning0
+\'a0 \'a0//get and set video duration\
+\pard\pardeftab720
+
+\i\fs24 \cf0 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720
+
+\i0\fs30 \cf2 \expnd0\expndtw0\kerning0
+\'a0 \'a0var durationMins = Math.floor(video.duration / 60);\
+\'a0 \'a0var durationSeconds = Math.floor(video.duration);\
+\pard\pardeftab720
+
+\i\fs24 \cf0 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720
+
+\i0\fs30 \cf2 \expnd0\expndtw0\kerning0
+\'a0 \'a0if (durationMins < 10) \{\
+\'a0 \'a0 \'a0 \'a0durationMins = '0' + durationMins;\
+\'a0 \'a0\};\
+\pard\pardeftab720
+
+\i\fs24 \cf0 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720
+
+\i0\fs30 \cf2 \expnd0\expndtw0\kerning0
+\'a0 \'a0if (durationSeconds < 10) \{\
+\'a0 \'a0 \'a0 \'a0durationSeconds = '0' + durationSeconds;\
+\'a0 \'a0\};\
+\pard\pardeftab720
+
+\i\fs24 \cf0 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720
+
+\i0\fs30 \cf2 \expnd0\expndtw0\kerning0
+\'a0 \'a0var videoDuration = durationMins + ":" + durationSeconds;\
+\pard\pardeftab720
+
+\i\fs24 \cf0 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720
+
+\i0\fs30 \cf2 \expnd0\expndtw0\kerning0
+\'a0 \'a0durationCounter.innerHTML = currentTime + " / " + videoDuration;\
+\
+\
+\
+\
+\pard\pardeftab720
+\cf2 \cb3 \expnd0\expndtw0\kerning0
+//Update duration counter\cf2 \cb1 \expnd0\expndtw0\kerning0
+\
+\cf2 \cb3 \expnd0\expndtw0\kerning0
+\'a0video.addEventListener("timeupdate", function()\{\cf2 \cb1 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720
+
+\i\fs24 \cf0 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720
+
+\i0\fs30 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\'a0 \'a0//get and set current mins and seconds\cf2 \cb1 \expnd0\expndtw0\kerning0
+\
+\cf2 \cb3 \expnd0\expndtw0\kerning0
+\'a0 \'a0var currentMins = Math.floor(video.currentTime / 60);\cf2 \cb1 \expnd0\expndtw0\kerning0
+\
+\cf2 \cb3 \expnd0\expndtw0\kerning0
+\'a0 \'a0var currentSeconds = Math.floor(video.currentTime);\cf2 \cb1 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720
+
+\i\fs24 \cf0 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720
+
+\i0\fs30 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\'a0 \'a0function addZero(integer) \{\cf2 \cb1 \expnd0\expndtw0\kerning0
+\
+\cf2 \cb3 \expnd0\expndtw0\kerning0
+\'a0 \'a0 \'a0if(integer < 10) \{\cf2 \cb1 \expnd0\expndtw0\kerning0
+\
+\cf2 \cb3 \expnd0\expndtw0\kerning0
+\'a0 \'a0 \'a0 \'a0integer = '0' + integer;\cf2 \cb1 \expnd0\expndtw0\kerning0
+\
+\cf2 \cb3 \expnd0\expndtw0\kerning0
+\'a0 \'a0 \'a0\}\cf2 \cb1 \expnd0\expndtw0\kerning0
+\
+\cf2 \cb3 \expnd0\expndtw0\kerning0
+\'a0 \'a0\}\cf2 \cb1 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720
+
+\i\fs24 \cf0 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720
+
+\i0\fs30 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\'a0 \'a0addZero(currentMins);\cf2 \cb1 \expnd0\expndtw0\kerning0
+\
+\cf2 \cb3 \expnd0\expndtw0\kerning0
+\'a0 \'a0addZero(currentSeconds);\cf2 \cb1 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720
+
+\i\fs24 \cf0 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720
+
+\i0\fs30 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\'a0 \'a0var currentTime = currentMins + ":" + currentSeconds;\cf2 \cb1 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720
+
+\i\fs24 \cf0 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720
+
+\i0\fs30 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\'a0 \'a0//get and set video duration\cf2 \cb1 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720
+
+\i\fs24 \cf0 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720
+
+\i0\fs30 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\'a0 \'a0var durationMins = Math.floor(video.duration / 60);\cf2 \cb1 \expnd0\expndtw0\kerning0
+\
+\cf2 \cb3 \expnd0\expndtw0\kerning0
+\'a0 \'a0var durationSeconds = Math.floor(video.duration);\cf2 \cb1 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720
+
+\i\fs24 \cf0 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720
+
+\i0\fs30 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\'a0 \'a0addZero(durationMins);\cf2 \cb1 \expnd0\expndtw0\kerning0
+\
+\cf2 \cb3 \expnd0\expndtw0\kerning0
+\'a0 \'a0addZero(durationSeconds);\cf2 \cb1 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720
+
+\i\fs24 \cf0 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720
+
+\i0\fs30 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\'a0 \'a0var videoDuration = durationMins + ":" + durationSeconds;\cf2 \cb1 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720
+
+\i\fs24 \cf0 \expnd0\expndtw0\kerning0
+\
+\
+\pard\pardeftab720
+
+\i0\fs30 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\'a0 \'a0durationCounter.innerHTML = currentTime + " / " + videoDuration;\cf2 \cb1 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720
+
+\i\fs24 \cf0 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720
+
+\i0\fs30 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\'a0\});\
+\
+\
+\
+
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+\pard\pardeftab720
+
+\f1\fs30 \cf2 \expnd0\expndtw0\kerning0
+timeUpdate: function() \{\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0$(myVideo).on("timeupdate", function() \{\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0var time = myVideo.currentTime;\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0var minutes = Math.floor(time / 60); \'a0 \
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0var seconds = Math.floor(time);\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0function addZero() \{\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0if (seconds < 10) \{\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0seconds = '0' + Math.floor(time);\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\}\'a0\'a0\'a0\'a0\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\}\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0if (myVideo.readyState > 0 ) \{\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0var time = myVideo.currentTime;\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0var minutes = Math.floor(time / 60);\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0var seconds = Math.floor(time);\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0addZero();\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0videoPlayerUI.timeCurrent.html(minutes + ":" + seconds + ' /');\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\}\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0addZero();\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 \'a0 \'a0 \'a0 \'a0videoPlayerUI.timeCurrent.html(minutes + ":" + seconds + ' /');\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\});\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\},}
