@@ -9,8 +9,7 @@ var	timeDuration = document.getElementById("time-duration");
 var playButton = document.getElementById("play-pause");
 var muteButton = document.getElementById("mute");
 var volumeBar = document.getElementById("volume-bar");
-var cc = document.getElementById("cc");
-var speedBtn = document.getElementById("speed");
+var subtitles = document.getElementById("cc");
 var SpeedContainer = document.getElementById("speed-container");
 var buttonSpeed05x = document.getElementById("speed05");
 var buttonSpeed10x = document.getElementById("speed10");
@@ -37,55 +36,7 @@ var ph16 = document.getElementById("ph16");
 
 
 
-// Function to toggle play speed container on
-/*			speedBtn function() {
-				video.SpeedContainer.css('z-index', '10000');
-        video.SpeedContainer.css('opacity', '1');
-			},
-
-			// Function to toggle play speed container off
-			togglePlaySpeedOff function() {
-				video.playSpeedContainer.css('z-index', '-1');
-                video.playSpeedContainer.css('opacity', '0');
-			},
-
-
-video.speedBtn.onMouseOver(function() {
-	video.togglePlaySpeedOn();
-	video.SpeedContainer.onMouseOver(function() {
-		video.togglePlaySpeedOn();
-	});
-	video.SpeedContainer.onMouseOut(function() {
-		video.togglePlaySpeedOff();
-	});
-	video.speedBtn.onMouseOut(function() {
-		video.togglePlaySpeedOff();
-	});
-}); 
-
-video.buttonSpeed20x.bind('click', function() {
-	video.playSpeed20x();
-});
-video.buttonSpeed15x.bind('click', function() {
-	video.playSpeed15x();
-});
-video.buttonSpeed10x.bind('click', function() {
-	video.playSpeed10x();
-});
-video.buttonSpeed05x.bind('click', function() {
-	video.playSpeed05x();
-});
-
-video.click(function() {
-	if (this.paused === false) {
-		video.pauseVideo();
-	} else
-	if (this.paused === true) {
-		video.playVideo();
-	}
-}) */
-
-
+/*
 
 //?¿
 function bufferedBar() {
@@ -109,8 +60,34 @@ function bufferedBar() {
 			});
 		}
 
+*/
 
 
+
+/***************
+CC
+***************/
+/*
+function subtitles() {
+
+		video.addEventListener("loadedmetadata", function() { 
+   track = document.createElement("track"); 
+   track.kind = "subtitles"; 
+   track.label = "English"; 
+   track.srclang = "en"; 
+   track.src = "../video/captions.vtt"; 
+   track.addEventListener("load", function() { 
+      this.mode = "showing"; 
+      video.textTracks[0].mode = "showing"; // thanks Firefox 
+   }); 
+   this.appendChild(track); 
+});
+};   */
+
+
+/***************
+PROGRESS BAR
+***************/
 
 // Event listener for the progress bar
 video.addEventListener("timeupdate", updateProgress, false);
@@ -123,6 +100,11 @@ function updateProgress() {
    progress.style.width = value + "%";
 }
 
+
+
+/***************
+TIME
+***************/
 
 // Event listener for the current time
 video.addEventListener("timeupdate", timing, false);
@@ -151,6 +133,11 @@ function timing2() {
 video.addEventListener("timeupdate", timing2, false);
 
 
+
+/***************
+PLAY PAUSE
+***************/
+
 // Event listener for the play/pause button
 playButton.addEventListener("click", function() {
 	if (video.paused == true) {
@@ -166,6 +153,11 @@ playButton.addEventListener("click", function() {
 	}
 });
 
+
+
+/***************
+VOLUME
+***************/
 
 // Event listener for the mute button
 muteButton.addEventListener("click", function() {
@@ -197,6 +189,43 @@ volumeBar.addEventListener('change', onVolumeBarChange);
   }
 }
 
+
+
+/***************
+VIDEO SPEED
+***************/
+
+function videoSpeed(speed){
+	video.playbackRate = speed;
+}
+
+buttonSpeed20x.onclick = function() {
+	videoSpeed(2.0);
+};
+buttonSpeed15x.onclick = function() {
+	videoSpeed(1.5);
+};
+buttonSpeed10x.onclick = function() {
+	videoSpeed(1.0);
+};
+buttonSpeed05x.onclick = function() {
+	videoSpeed(0.5);
+};
+
+video.click(function() {
+	if (this.paused === false) {
+		video.pauseVideo();
+	} else
+	if (this.paused === true) {
+		video.playVideo();
+	}
+}); 
+
+
+
+/***************
+FULL SCREEN
+***************/
 
 // Event listener for the full-screen button
 fullScreenButton.addEventListener("click", function() {
