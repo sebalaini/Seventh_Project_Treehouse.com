@@ -17,16 +17,10 @@ button:hover {
 	cursor: pointer;
 }
 
-input {
-	display: inline-block;
-	padding: 4px;
-	margin: 1px;
-}
-
 #play-pause {
 	background: url("../icons/play-icon.png") no-repeat;
-	margin: 1px 10px;
-	margin-left: 15px;
+	margin: 2px 10px;
+	margin-left: 10px;
 }
 
 
@@ -35,24 +29,24 @@ input {
 	@extend %margin_btn;
 }
 
-#volume {
-	display: inline-block;
-	width: 60px;
-}
-
-#volume:hover #volume-bar {
-	display: inline-block;
-}
 
 #volume-bar {
+
+	@include mobile {
+		display: inline-block;
+		width: 40px;
+		height: 30px;
+		margin: 2px 5px;
+		float: right;
+	}
+
+	@include tablet {
 	display: none;
-	width: 40px;
-	height: 15px;
-	@extend %margin_btn;
-	margin-top: 10px;
-	margin-right: 0;
-	margin-bottom: 24px;
+	position: absolute;
+	right: 120px;
+	bottom: 36px;
 	transform:rotate(-90deg);
+	}
 }
 
 
@@ -60,6 +54,7 @@ input {
 	background: url("../icons/captions-icon.png") no-repeat;
 	@extend %margin_btn;
 	margin-top: 4px;
+	margin-right: 7px;	
 }
 
 
@@ -67,7 +62,8 @@ input {
 	
 	@include mobile {
 		background: url("../icons/speed-icon.png") no-repeat;
-		margin: 1px 5px;
+		margin: 2px 5px;
+		margin-bottom: 4px;
 		float: right;
 		display: none;
 	}

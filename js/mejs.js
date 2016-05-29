@@ -11,6 +11,11 @@ var muteButton = document.getElementById("mute");
 var volumeBar = document.getElementById("volume-bar");
 var cc = document.getElementById("cc");
 var speedBtn = document.getElementById("speed");
+var SpeedContainer = document.getElementById("speed-container");
+var buttonSpeed05x = document.getElementById("speed05");
+var buttonSpeed10x = document.getElementById("speed10");
+var buttonSpeed15x = document.getElementById("speed15");
+var buttonSpeed20x = document.getElementById("speed20");
 var fullScreenButton = document.getElementById("full-screen");
 
 var ph01 = document.getElementById("ph01");
@@ -32,7 +37,53 @@ var ph16 = document.getElementById("ph16");
 
 
 
+// Function to toggle play speed container on
+/*			speedBtn function() {
+				video.SpeedContainer.css('z-index', '10000');
+        video.SpeedContainer.css('opacity', '1');
+			},
 
+			// Function to toggle play speed container off
+			togglePlaySpeedOff function() {
+				video.playSpeedContainer.css('z-index', '-1');
+                video.playSpeedContainer.css('opacity', '0');
+			},
+
+
+video.speedBtn.onMouseOver(function() {
+	video.togglePlaySpeedOn();
+	video.SpeedContainer.onMouseOver(function() {
+		video.togglePlaySpeedOn();
+	});
+	video.SpeedContainer.onMouseOut(function() {
+		video.togglePlaySpeedOff();
+	});
+	video.speedBtn.onMouseOut(function() {
+		video.togglePlaySpeedOff();
+	});
+}); 
+
+video.buttonSpeed20x.bind('click', function() {
+	video.playSpeed20x();
+});
+video.buttonSpeed15x.bind('click', function() {
+	video.playSpeed15x();
+});
+video.buttonSpeed10x.bind('click', function() {
+	video.playSpeed10x();
+});
+video.buttonSpeed05x.bind('click', function() {
+	video.playSpeed05x();
+});
+
+video.click(function() {
+	if (this.paused === false) {
+		video.pauseVideo();
+	} else
+	if (this.paused === true) {
+		video.playVideo();
+	}
+}) */
 
 
 
@@ -61,7 +112,8 @@ function bufferedBar() {
 
 
 
-
+// Event listener for the progress bar
+video.addEventListener("timeupdate", updateProgress, false);
 // Function for the progress bar
 function updateProgress() {
    var value = 0;
@@ -71,10 +123,9 @@ function updateProgress() {
    progress.style.width = value + "%";
 }
 
-// Event listener for the progress bar
-video.addEventListener("timeupdate", updateProgress, false);
 
-
+// Event listener for the current time
+video.addEventListener("timeupdate", timing, false);
 // Function for the current time
 function timing() {
 	var currtime = video.currentTime 
@@ -84,9 +135,6 @@ function timing() {
   var y = seconds < 10 ? "0" + seconds : seconds;
   timeCurrent.innerHTML = ( x + y + " " + "/");
 }
-
-// Event listener for the current time
-video.addEventListener("timeupdate", timing, false);
 
 
 // Function for the current time
@@ -135,21 +183,9 @@ muteButton.addEventListener("click", function() {
 });
 
 
-// Event listener for the full-screen button
-fullScreenButton.addEventListener("click", function() {
-	if (video.requestFullscreen) {
-		video.requestFullscreen();
-	} else if (video.mozRequestFullScreen) {
-		video.mozRequestFullScreen(); // Firefox
-	} else if (video.webkitRequestFullscreen) {
-		video.webkitRequestFullscreen(); // Chrome and Safari
-	}
-});
-
-
-volumeBar.addEventListener('change', onVolumeBarChange);
 // Event listener for the volume bar
-function onVolumeBarChange () {
+volumeBar.addEventListener('change', onVolumeBarChange);
+	function onVolumeBarChange () {
   // Update the video volume
 	video.volume = volumeBar.value;
 	if (video.volume == 0) {
@@ -160,6 +196,18 @@ function onVolumeBarChange () {
     muteButton.style.backgroundImage="url(icons/volume-on-icon.png)";
   }
 }
+
+
+// Event listener for the full-screen button
+fullScreenButton.addEventListener("click", function() {
+	if (video.requestFullscreen) {
+		video.requestFullscreen();
+	} else if (video.mozRequestFullScreen) {
+		video.mozRequestFullScreen(); // Firefox
+	} else if (video.webkitRequestFullscreen) {
+		video.webkitRequestFullscreen(); // Chrome and Safari
+	}
+});
 
 };
 

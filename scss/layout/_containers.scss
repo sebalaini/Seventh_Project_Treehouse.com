@@ -32,7 +32,7 @@ video,
 
 
 /***************
-VIDEO BAR
+TIME BAR
 ***************/
 
 #progressBar {
@@ -60,25 +60,31 @@ VIDEO BAR
 	height: 12px;
 }
 
+
+
 /***************
 VIDEO CONTROLS
 ***************/
 
-.left-btn {
+.left-btn,
+.right-btn {
 	display: inline-block;
+}
+
+.left-btn {
 	float: left;
-	width: 160px;
+	width: 140px;
 }
 
 .right-btn {
 
 	@include mobile {
-	display: inline-block;
-	float: right;
-	width: 160px;
-}		
+		width: 170px;
+		float: right;
+	}
+
 	@include tablet {
-		width: 175px;
+		width: 155px;
 	}
 }
 
@@ -95,7 +101,29 @@ VIDEO CONTROLS
 	color: $white;
 }
 
+#volume,
+#speed-container {
+	display: inline-block;
+}
 
+#volume:hover #volume-bar {
+	display: inline-block;
+}
+
+
+
+#speed-container:hover #speed-option {
+	display: initial;
+}
+
+#speed-option {
+	display: none;
+	position: absolute;
+	width: 30px;
+	height: 20px;
+	right: 80px;
+	bottom: 160px;
+}
 
 
 
