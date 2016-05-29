@@ -60,10 +60,18 @@ label,
 
 
 #cc {
+
+	@include mobile {
 	background: url("../icons/captions-icon.png") no-repeat;
-	@extend %margin_btn;
+	display: none;
+	margin: 2px 5px;
+	float: right;
 	margin-top: 4px;
 	margin-right: 7px;	
+}
+	@include tablet {
+		display: inline-block;
+	}
 }
 
 
