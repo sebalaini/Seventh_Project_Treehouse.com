@@ -36,6 +36,11 @@ var ph16 = document.getElementById("ph16");
 
 
 
+
+
+
+
+
 /*
 
 //?¿
@@ -237,6 +242,168 @@ fullScreenButton.addEventListener("click", function() {
 		video.webkitRequestFullscreen(); // Chrome and Safari
 	}
 });
+
+
+
+/***************
+CAPTIONS HIGHLIGHTS
+***************/
+			
+video.addEventListener('timeupdate', function() {
+	var currTime = video.currentTime;
+	if (currTime > 0 && currTime < 4 ) {
+		ph01.style.color = "#ffa500";
+	} else {
+		ph01.style.color = "#99a0a3";
+	}
+	if (currTime > 4 && currTime < 7.5 ) {
+		ph02.style.color = "#ffa500"; 
+	} else {
+		ph02.style.color = "#99a0a3";    
+	}
+	if (currTime > 7.5 && currTime < 11.2 ) {
+		ph03.style.color = "#ffa500"; 
+	} else {
+		ph03.style.color = "#99a0a3";    
+	}
+	if (currTime > 11.2 && currTime < 14 ) {
+		ph04.style.color = "#ffa500"; 
+	} else {
+		ph04.style.color = "#99a0a3";    
+	}
+	if (currTime > 14 && currTime < 18 ) {
+		ph05.style.color = "#ffa500";
+	} else {
+		ph05.style.color = "#99a0a3";    
+	}
+	if (currTime > 18 && currTime < 22.4 ) {
+		ph06.style.color = "#ffa500";  
+	} else {
+		ph06.style.color = "#99a0a3";    
+	}
+	if (currTime > 22.4 && currTime < 26.9 ) {
+		ph07.style.color = "#ffa500";  
+	} else {
+		ph07.style.color = "#99a0a3";    
+	}
+	if (currTime > 26.9 && currTime < 31 ) {
+		ph08.style.color = "#ffa500";
+	} else {
+		ph08.style.color = "#99a0a3";    
+	}
+	if (currTime > 32.1 && currTime < 34.7 ) {
+		ph09.style.color = "#ffa500";   
+	} else {
+		ph09.style.color = "#99a0a3";    
+	}
+	if (currTime > 34.7 && currTime < 39.5 ) {
+		ph10.style.color = "#ffa500";  
+	} else {
+		ph10.style.color = "#99a0a3";    
+	}
+	if (currTime > 39.5 && currTime < 41.2 ) {
+		ph11.style.color = "#ffa500";  
+	} else {
+		ph11.style.color = "#99a0a3";    
+	}
+	if (currTime > 42.3 && currTime < 46.3 ) {
+		ph12.style.color = "#ffa500";  
+	} else {
+		ph12.style.color = "#99a0a3";    
+	}
+	if (currTime > 46.3 && currTime < 49.3 ) {
+		ph13.style.color = "#ffa500";  
+	} else {
+		ph13.style.color = "#99a0a3";    
+	}
+	if (currTime > 49.3 && currTime < 53.7 ) {
+		ph14.style.color = "#ffa500";  
+	} else {
+		ph14.style.color = "#99a0a3";    
+	}
+	if (currTime > 53.8 && currTime < 57.8 ) {
+		ph15.style.color = "#ffa500";  
+	} else {
+		ph15.style.color = "#99a0a3";    
+	}
+	if (currTime > 57.8 && currTime < 59 ) {
+		vh16.cstyle.color = "#ffa500"; 
+	} else {
+		ph16.style.color = "#99a0a3";    
+	}
+});
+
+
+
+/***************
+INTERACTIVE CAPTIONS
+***************/
+
+	ph01.onclick = function() {
+		video.currentTime = 0;
+		video.play();
+	};
+	ph02.onclick = function() {
+		video.currentTime = 4;
+		video.play();
+	};
+	ph03.onclick = function() {
+		video.currentTime = 7.5;
+		videoplay();
+	};
+	ph04.onclick = function() {
+		video.currentTime = 11.2;
+		video.play();
+	};
+	ph05.onclick = function() {
+		video.currentTime = 14;
+		video.play();
+	};
+	ph06.onclick = function() {
+		video.currentTime = 18;
+		video.play();
+	};
+	ph07.onclick = function() {
+		video.currentTime = 22.4;
+		video.play();
+	};
+	ph08.onclick = function() {
+		video.currentTime = 26.9;
+		video.play();
+	};
+	ph09.onclick = function() {
+		video.currentTime = 32.1;
+		video.play();
+	};
+	ph10.onclick = function() {
+		video.currentTime = 34.7;
+		video.play();
+	};
+	ph11.onclick = function() {
+		video.currentTime = 39.5;
+		video.play();
+	};
+	ph12.onclick = function() {
+		video.currentTime = 42.3;
+		video.play();
+	};
+	ph13.onclick = function() {
+		video.currentTime = 46.3;
+		video.play();
+	};
+	ph14.onclick = function() {
+		video.currentTime = 49.3;
+		video.play();
+	};
+	ph15.onclick = function() {
+		video.currentTime = 53.8;
+		video.play();
+	};
+	ph16.onclick = function() {
+		video.currentTime = 57.8;
+		video.play();
+	};
+
 
 };
 
