@@ -327,7 +327,7 @@ video.addEventListener('timeupdate', function() {
 		ph15.style.color = "#99a0a3";    
 	}
 	if (currTime > 57.8 && currTime < 59 ) {
-		vh16.cstyle.color = "#ffa500"; 
+		ph16.style.color = "#ffa500"; 
 	} else {
 		ph16.style.color = "#99a0a3";    
 	}
@@ -349,7 +349,7 @@ INTERACTIVE CAPTIONS
 	};
 	ph03.onclick = function() {
 		video.currentTime = 7.5;
-		videoplay();
+		video.play();
 	};
 	ph04.onclick = function() {
 		video.currentTime = 11.2;
