@@ -35,32 +35,41 @@ video,
 TIME BAR
 ***************/
 
-#progressBar {
-	display: inline;
-	position: initial;
-  width: 100%; 
-  margin-bottom: 8px;
-}
-
-#progress {
-  background-color: $orange;
-  height:6px;
-  display:inline;
-  position: absolute;
-  left: 0;
+#buffered {
+  position: relative;
+  background: #555;
 }
 
 #buffered-amount {
-  background-color:#d4ff08;
-  height:6px;
-  display:inline-block;
+  display: block;
+  height: 6px;
+  background-color: $grey;
+  width: 0;
 }
 
-#video-container:hover #progress {
+#progress {
+  position: relative;
+  top: -6px;
+}
+
+#progress-amount {
+  display: block;
+  height: 6px;
+  background-color: $orange;
+  width: 0;
+}
+
+#video-container:hover #progress-amount {
 	height: 12px;
 }
 
+#video-container:hover #progress {
+	top: -12px;
+}
 
+#video-container:hover #buffered-amount {
+	height: 12px;
+}
 
 /***************
 VIDEO CONTROLS

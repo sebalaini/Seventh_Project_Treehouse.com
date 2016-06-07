@@ -3,6 +3,8 @@ window.onload = function() {
 
 var video = document.getElementById("video");
 var progress = document.getElementById("progress");
+var progressBar = document.getElementById("progress-amount");
+var buffered = document.getElementById("buffered");
 var bufferedBar = document.getElementById("buffered-amount");
 var timeCurrent = document.getElementById("time-current");
 var	timeDuration = document.getElementById("time-duration");
@@ -44,7 +46,7 @@ var ph16 = document.getElementById("ph16");
 /*
 
 //?¿
-function bufferedBar() {
+function buffered() {
 			function updateLoadProgress() {
 				if (video.buffered.length > 0) {
 					var percent = (video.buffered.end(0) / video.duration) * 100;
@@ -64,6 +66,15 @@ function bufferedBar() {
 				updateLoadProgress();
 			});
 		}
+
+ video.addEventListener('progress', function() {
+    var bufferedEnd = video.buffered.end(video.buffered.length - 1);
+    var duration =  video.duration;
+    if (duration > 0) {
+      bufferedBar.style.width = ((bufferedEnd / duration)*100) + "%";
+    }
+  });
+
 
 */
 
@@ -94,18 +105,17 @@ function subtitles() {
 PROGRESS BAR
 ***************/
 
-// Event listener for the progress bar
-video.addEventListener("timeupdate", updateProgress, false);
-// Function for the progress bar
-function updateProgress() {
-   var value = 0;
-   if (video.currentTime > 0) {
-      value = Math.floor((100 / video.duration) * video.currentTime);
-   }
-   progress.style.width = value + "%";
-}
+// Event listener for the current time bar
+video.addEventListener('timeupdate', function() {
+  progress = video.currentTime;
+  progressBar.style.width = Math.floor((video.currentTime / video.duration) * 100) + '%';
+});
 
-
+// Event listener for change the position on mouse click
+progress.addEventListener('click', function(e) {
+  var pos = (e.pageX  - this.offsetLeft) / this.offsetWidth;
+  video.currentTime = pos * video.duration;
+});
 
 /***************
 TIME
