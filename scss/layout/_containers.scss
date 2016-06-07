@@ -35,9 +35,13 @@ video,
 TIME BAR
 ***************/
 
+#buffered:hover,
+#progress:hover {
+	cursor: pointer;
+}
+
 #buffered {
   position: relative;
-  background: #555;
 }
 
 #buffered-amount {

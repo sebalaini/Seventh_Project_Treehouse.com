@@ -38,11 +38,6 @@ var ph16 = document.getElementById("ph16");
 
 
 
-
-
-
-
-
 /*
 
 //?¿
@@ -50,7 +45,7 @@ function buffered() {
 			function updateLoadProgress() {
 				if (video.buffered.length > 0) {
 					var percent = (video.buffered.end(0) / video.duration) * 100;
-					video.bufferBar.css("width", percent + '%');
+					bufferedBar.css("width", percent + '%');
 				}
 			}
 			video.bind("progress", function() {
@@ -67,17 +62,17 @@ function buffered() {
 			});
 		}
 
- video.addEventListener('progress', function() {
-    var bufferedEnd = video.buffered.end(video.buffered.length - 1);
-    var duration =  video.duration;
-    if (duration > 0) {
-      bufferedBar.style.width = ((bufferedEnd / duration)*100) + "%";
-    }
-  });
+ 
 
 
 */
-
+video.addEventListener("progress", function() {
+  var bufferedEnd = video.buffered.end(video.buffered.length - 1);
+  var duration =  video.duration;
+    if (duration > 0) {
+    bufferedBar.style.width = Math.floor((bufferedEnd / duration)*100) + "%";
+    }
+  });
 
 
 /***************
@@ -101,6 +96,7 @@ function subtitles() {
 };   */
 
 
+
 /***************
 PROGRESS BAR
 ***************/
@@ -116,6 +112,8 @@ progress.addEventListener('click', function(e) {
   var pos = (e.pageX  - this.offsetLeft) / this.offsetWidth;
   video.currentTime = pos * video.duration;
 });
+
+
 
 /***************
 TIME
