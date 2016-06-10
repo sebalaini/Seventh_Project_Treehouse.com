@@ -18,7 +18,6 @@ var buttonSpeed10x = document.getElementById("speed10");
 var buttonSpeed15x = document.getElementById("speed15");
 var buttonSpeed20x = document.getElementById("speed20");
 var fullScreenButton = document.getElementById("full-screen");
-
 var ph01 = document.getElementById("ph01");
 var ph02 = document.getElementById("ph02");
 var ph03 = document.getElementById("ph03");
@@ -38,41 +37,6 @@ var ph16 = document.getElementById("ph16");
 
 
 
-/*
-
-//?¿
-function buffered() {
-			function updateLoadProgress() {
-				if (video.buffered.length > 0) {
-					var percent = (video.buffered.end(0) / video.duration) * 100;
-					bufferedBar.css("width", percent + '%');
-				}
-			}
-			video.bind("progress", function() {
-				updateLoadProgress();
-			});
-			video.bind("loadeddata", function() {
-				updateLoadProgress();
-			});
-			video.bind("canplaythrough", function() {
-				updateLoadProgress();
-			});
-			video.bind("playing", function() {
-				updateLoadProgress();
-			});
-		}
-
- 
-
-
-*/
-video.addEventListener("progress", function() {
-  var bufferedEnd = video.buffered.end(video.buffered.length - 1);
-  var duration =  video.duration;
-    if (duration > 0) {
-    bufferedBar.style.width = Math.floor((bufferedEnd / duration)*100) + "%";
-    }
-  });
 
 
 /***************
@@ -93,8 +57,28 @@ function subtitles() {
    }); 
    this.appendChild(track); 
 });
-};   */
+};  
 
+ function subtitles() {
+				for (var i = 0; i < video.textTracks.length; i++) {
+				   video.textTracks[i].mode = 'hidden';
+				}
+				subtitles("click", function() {
+					for (var i = 0; i < video.textTracks.length; i++) {
+					  	video.textTracks[i].mode = 'showing';
+					}
+				});
+				subtitles("click", function() {
+					for (var i = 0; i < video.textTracks.length; i++) {
+					   video.textTracks[i].mode = 'hidden';
+					}
+				});
+			};
+
+
+ */
+
+ 
 
 
 /***************
@@ -103,15 +87,78 @@ PROGRESS BAR
 
 // Event listener for the current time bar
 video.addEventListener('timeupdate', function() {
-  progress = video.currentTime;
   progressBar.style.width = Math.floor((video.currentTime / video.duration) * 100) + '%';
 });
 
-// Event listener for change the position on mouse click
-progress.addEventListener('click', function(e) {
-  var pos = (e.pageX  - this.offsetLeft) / this.offsetWidth;
-  video.currentTime = pos * video.duration;
-});
+// Function for update the progress bar width
+function setPlayProgress(clickX) {
+	var newPercent = Math.max(0, Math.min(1, (clickX - findPosX(progress)) / progress.offsetWidth));
+	video.currentTime = newPercent * video.duration;
+	progressBar.style.width = newPercent * (progress.offsetWidth - 2) + "px";
+}
+
+function blockTextSelection(){
+	document.body.focus();
+	document.onselectstart = function () { return false; };
+}
+
+function unblockTextSelection(){
+	document.onselectstart = function () { return true; };
+}
+
+// Find the position X on the progress bar
+function findPosX(obj) {
+	var curleft = obj.offsetLeft;
+	while(obj = obj.offsetParent) {
+	curleft += obj.offsetLeft;
+	}
+	return curleft;
+}
+
+// Mouse event
+progress.addEventListener("mousedown", function(){
+	blockTextSelection();
+		document.onmousemove = function(e) {
+		setPlayProgress(e.pageX);
+};
+
+document.onmouseup = function() {
+	unblockTextSelection();
+	document.onmousemove = null;
+	document.onmouseup = null;
+};
+
+}, true);
+progress.addEventListener("mouseup", function(e){
+setPlayProgress(e.pageX);
+}, true);
+
+
+
+/***************
+BUFFER BAR
+***************/
+/*
+
+video.addEventListener("progress", function() {
+  var bufferedEnd = video.buffered.end(video.buffered.length - 1);
+  var duration =  video.duration;
+    if (duration > 0) {
+    bufferedBar.style.width = Math.floor((bufferedEnd / duration)*100) + "%";
+    }
+  });
+
+*/
+
+
+ function buffered () {
+		function updateLoadProgress() {
+			if (video.buffered.length > 0) {
+				var percent = (video.buffered.end(0) / video.duration) * 100;
+				bufferedBar.style.width = ("width", percent + '%');
+			}
+		}			
+	};
 
 
 
@@ -141,6 +188,7 @@ function timing2() {
   var y = seconds < 10 ? "0" + seconds : seconds;
   timeDuration.innerHTML = ( x + y + " ");
 }
+
 
 // Event listener for the total time
 video.addEventListener("timeupdate", timing2, false);
@@ -224,6 +272,7 @@ buttonSpeed10x.onclick = function() {
 buttonSpeed05x.onclick = function() {
 	videoSpeed(0.5);
 };
+
 
 video.click(function() {
 	if (this.paused === false) {
