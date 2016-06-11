@@ -83,6 +83,7 @@ BUFFER BAR
 ***************/
 
 video.addEventListener("progress", function() {
+  var duration = video.duration;
   var bufferedAmount = video.buffered.end(video.buffered.length - 1);
 	  if (duration > 0) {
     bufferedBar.style.width = ((bufferedAmount / duration)*100) + "%";
