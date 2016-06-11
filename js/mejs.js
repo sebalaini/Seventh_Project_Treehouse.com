@@ -37,32 +37,27 @@ var ph16 = document.getElementById("ph16");
 
 
 
-
-
 /***************
 CC
 ***************/
-/*
  
+function sub() {
+	for (var i = 0; i < video.textTracks.length; i++) {
+	video.textTracks[i].mode = "hidden";
+	}
+	subtitles("click", function() {
+		for (var i = 0; i < video.textTracks.length; i++) {
+		video.textTracks[i].mode = "showing";
+	}
+});
+	subtitles("click", function() {
+		for (var i = 0; i < video.textTracks.length; i++) {
+		video.textTracks[i].mode = "hidden";
+		}
+	});
+};
 
- function subtitles() {
-				for (var i = 0; i < video.textTracks.length; i++) {
-				   video.textTracks[i].mode = 'hidden';
-				}
-				subtitles("click", function() {
-					for (var i = 0; i < video.textTracks.length; i++) {
-					  	video.textTracks[i].mode = 'showing';
-					}
-				});
-				subtitles("click", function() {
-					for (var i = 0; i < video.textTracks.length; i++) {
-					   video.textTracks[i].mode = 'hidden';
-					}
-				});
-			};
 
-
- */
 
 /***************
 BUFFER BAR
