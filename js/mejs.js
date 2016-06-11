@@ -239,14 +239,7 @@ buttonSpeed05x.onclick = function() {
 };
 
 
-video.click(function() {
-	if (this.paused === false) {
-		video.pauseVideo();
-	} else
-	if (this.paused === true) {
-		video.playVideo();
-	}
-}); 
+
 
 
 
