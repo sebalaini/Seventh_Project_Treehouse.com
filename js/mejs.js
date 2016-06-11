@@ -78,7 +78,17 @@ function subtitles() {
 
  */
 
- 
+/***************
+BUFFER BAR
+***************/
+
+video.addEventListener("progress", function() {
+  var bufferedAmount = video.buffered.end(video.buffered.length - 1);
+	  if (duration > 0) {
+    bufferedBar.style.width = ((bufferedAmount / duration)*100) + "%";
+  }
+});
+
 
 
 /***************
@@ -86,7 +96,7 @@ PROGRESS BAR
 ***************/
 
 // Event listener for the current time bar
-video.addEventListener('timeupdate', function() {
+video.addEventListener("timeupdate", function() {
   progressBar.style.width = Math.floor((video.currentTime / video.duration) * 100) + '%';
 });
 
@@ -132,33 +142,6 @@ document.onmouseup = function() {
 progress.addEventListener("mouseup", function(e){
 setPlayProgress(e.pageX);
 }, true);
-
-
-
-/***************
-BUFFER BAR
-***************/
-/*
-
-video.addEventListener("progress", function() {
-  var bufferedEnd = video.buffered.end(video.buffered.length - 1);
-  var duration =  video.duration;
-    if (duration > 0) {
-    bufferedBar.style.width = Math.floor((bufferedEnd / duration)*100) + "%";
-    }
-  });
-
-*/
-
-
- function buffered () {
-		function updateLoadProgress() {
-			if (video.buffered.length > 0) {
-				var percent = (video.buffered.end(0) / video.duration) * 100;
-				bufferedBar.style.width = ("width", percent + '%');
-			}
-		}			
-	};
 
 
 
