@@ -43,21 +43,7 @@ var ph16 = document.getElementById("ph16");
 CC
 ***************/
 /*
-function subtitles() {
-
-		video.addEventListener("loadedmetadata", function() { 
-   track = document.createElement("track"); 
-   track.kind = "subtitles"; 
-   track.label = "English"; 
-   track.srclang = "en"; 
-   track.src = "../video/captions.vtt"; 
-   track.addEventListener("load", function() { 
-      this.mode = "showing"; 
-      video.textTracks[0].mode = "showing"; // thanks Firefox 
-   }); 
-   this.appendChild(track); 
-});
-};  
+ 
 
  function subtitles() {
 				for (var i = 0; i < video.textTracks.length; i++) {
@@ -154,7 +140,7 @@ TIME
 video.addEventListener("timeupdate", timing, false);
 // Function for the current time
 function timing() {
-	var currtime = video.currentTime 
+	var currtime = video.currentTime;
   var minutes = Math.floor(currtime / 60);
   var seconds = Math.floor(currtime - minutes * 60);
 	var x = minutes < 10 ? " " + minutes + ":": minutes;
@@ -165,7 +151,7 @@ function timing() {
 
 // Function for the current time
 function timing2() {
-	var totaltime = video.duration 
+	var totaltime = video.duration;
   var minutes = Math.floor(totaltime / 60);
   var seconds = Math.floor(totaltime - minutes * 60);
 	var x = minutes < 10 ? " " + minutes + ":": minutes;
