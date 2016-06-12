@@ -38,18 +38,6 @@ var ph16 = document.getElementById("ph16");
 
 
 /***************
-CC
-***************/
-
-// Event listener for subtitles
- subtitles.addEventListener("click", function (event) {
-    var currentMode = video.textTracks[0].mode
-    video.textTracks[0].mode = currentMode === 'showing' ? 'hidden' : 'showing'
-});
-
-
-
-/***************
 BUFFER BAR
 ***************/
 
@@ -237,6 +225,18 @@ video.click(function() {
 	if (this.paused === true) {
 		video.playVideo();
 	}
+});
+
+
+
+/***************
+CC
+***************/
+
+// Event listener for subtitles
+ subtitles.addEventListener("click", function (event) {
+  var currentMode = video.textTracks[0].mode;
+  video.textTracks[0].mode = currentMode === 'showing' ? 'hidden' : 'showing';
 });
 
 
