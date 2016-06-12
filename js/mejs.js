@@ -41,20 +41,10 @@ var ph16 = document.getElementById("ph16");
 CC
 ***************/
 
-
 // Event listener for subtitles
-subtitles.addEventListener("click", function() {
-	var lang = this.getAttribute('lang');
-    for (var i = 0; i < video.textTracks.length; i++) {
-      // For the 'subtitles-off' button, the first condition will never match so all will subtitles be turned off
-     if (video.textTracks[i].language == lang) {
-        video.textTracks[i].mode = 'showing';
-        this.setAttribute('data-state', 'active');
-      }
-      else {
-      video.textTracks[i].mode = 'hidden';
-    }
-  }
+ subtitles.addEventListener("click", function (event) {
+    var currentMode = video.textTracks[0].mode
+    video.textTracks[0].mode = currentMode === 'showing' ? 'hidden' : 'showing'
 });
 
 
