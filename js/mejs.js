@@ -40,22 +40,17 @@ var ph16 = document.getElementById("ph16");
 /***************
 CC
 ***************/
- 
-function sub() {
-	for (var i = 0; i < video.textTracks.length; i++) {
-	video.textTracks[i].mode = "hidden";
-	}
-	subtitles("click", function() {
-		for (var i = 0; i < video.textTracks.length; i++) {
-		video.textTracks[i].mode = "showing";
+
+// Event listener for subtitles
+subtitles.addEventListener("click", function() {
+	if (video.textTracks.mode = "showing") {
+		// CC Off
+		video.textTracks.mode = "hidden";
+	} else {
+		// CC On
+		video.textTracks.mode = "showing";
 	}
 });
-	subtitles("click", function() {
-		for (var i = 0; i < video.textTracks.length; i++) {
-		video.textTracks[i].mode = "hidden";
-		}
-	});
-};
 
 
 
@@ -63,6 +58,7 @@ function sub() {
 BUFFER BAR
 ***************/
 
+// Event listener for the buffered bar
 video.addEventListener("progress", function() {
   var duration = video.duration;
   var bufferedAmount = video.buffered.end(video.buffered.length - 1);
@@ -239,14 +235,14 @@ buttonSpeed05x.onclick = function() {
 };
 
 
-/*video.click(function() {
+video.click(function() {
 	if (this.paused === false) {
 		video.pauseVideo();
 	} else
 	if (this.paused === true) {
 		video.playVideo();
 	}
-});*/ 
+});
 
 
 
